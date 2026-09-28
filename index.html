@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>COBACH Nogales II | Inventario de Cómputo</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="loginScreen" class="login-screen">
+  <div class="login-card">
+    <div class="brand">COBACH <span>NOGALES II</span></div>
+    <h1>Control de Inventario</h1>
+    <p>Inicia sesión con un usuario autorizado.</p>
+    <form id="loginForm">
+      <label>Correo electrónico<input id="loginEmail" type="email" required autocomplete="username"></label>
+      <label>Contraseña<input id="loginPassword" type="password" required autocomplete="current-password"></label>
+      <button class="primary" type="submit">Iniciar sesión</button>
+      <p id="loginMessage" class="message"></p>
+    </form>
+  </div>
+</div>
+<div id="appShell" hidden>
+<header><div><div class="brand">COBACH <span>NOGALES II</span></div><small>Sistema de Control de Inventario de Equipo de Cómputo</small></div><div class="user"><span id="currentUser">Usuario</span> · <span id="currentRole">—</span> <button class="row-btn" id="logoutBtn">Salir</button></div></header>
+<nav><button data-view="dashboard" class="active">Inicio</button><button data-view="inventory">Inventario</button><button data-view="form" class="write-only">Nuevo equipo</button><button data-view="maintenance">Mantenimiento</button><button data-view="admin" class="admin-only">Administración</button></nav>
+<main>
+<section id="dashboard" class="view active"><h1>Panel de control</h1><p class="lead">Resumen general del equipo de cómputo del plantel.</p><div class="cards"><div class="card"><b id="total">0</b><span>Total de equipos</span></div><div class="card"><b id="good">0</b><span>Buen estado</span></div><div class="card"><b id="regular">0</b><span>Estado regular</span></div><div class="card"><b id="service">0</b><span>Requieren servicio</span></div></div><div class="panel"><h2>Equipos recientes</h2><div id="recent"></div></div></section>
+<section id="inventory" class="view"><div class="title-row"><div><h1>Inventario de equipos</h1><p class="lead">Consulta, localiza y administra los equipos registrados en Supabase.</p></div><button id="newEquipmentBtn" class="primary write-only" onclick="openNew()">+ Nuevo equipo</button></div><div class="toolbar"><input id="search" placeholder="Buscar por ID, inventario, serie, ubicación o responsable..."><select id="filter"><option value="">Todos los estados</option><option>Bueno</option><option>Regular</option><option>Requiere servicio</option><option>Baja</option></select></div><div class="table-wrap"><table><thead><tr><th>ID</th><th>Inventario</th><th>Equipo</th><th>Ubicación</th><th>Responsable</th><th>Estado</th><th>Acciones</th></tr></thead><tbody id="rows"></tbody></table></div></section>
+<section id="form" class="view"><h1 id="formTitle">Registrar nuevo equipo</h1><p class="lead">Capture la información técnica y administrativa del equipo.</p><form id="equipmentForm"><input type="hidden" id="editId"><div class="form-grid"><label>Identificación del equipo<input id="equipmentId" required placeholder="Ej. CB2-PC-001"></label><label>Número de inventario<input id="assetNo" placeholder="Inventario patrimonial"></label><label>Número de serie<input id="serial"></label><label>Marca<input id="brand"></label><label>Modelo<input id="model"></label><label>Ubicación<input id="location" required></label><label>Área / Aula<input id="area"></label><label>Responsable<input id="responsible"></label><label>Procesador (CPU)<input id="cpu"></label><label>Memoria RAM<input id="ram" placeholder="Ej. 16 GB DDR4"></label><label>Almacenamiento (Disco)<input id="storage" placeholder="Ej. SSD 512 GB"></label><label>Tarjeta Gráfica<input id="gpu"></label><label>Tarjeta Madre - Marca<input id="motherboardBrand"></label><label>Tarjeta Madre - Modelo<input id="motherboardModel"></label><label>Sistema Operativo<input id="os"></label><label>Monitor - Marca<input id="monitorBrand"></label><label>Monitor - Tamaño<input id="monitorSize" placeholder='Ej. 24"'></label><label>Estado del Equipo<select id="status" required><option>Bueno</option><option>Regular</option><option>Requiere servicio</option><option>Baja</option></select></label><label>Fecha de alta<input id="date" type="date"></label><label class="wide">Observaciones<textarea id="notes" rows="4"></textarea></label></div><div class="actions"><button type="button" class="secondary" onclick="showView('inventory')">Cancelar</button><button class="primary" type="submit">Guardar equipo</button></div><p id="formMessage" class="message"></p></form></section>
+<section id="maintenance" class="view"><h1>Mantenimiento</h1><p class="lead">La tabla de mantenimientos ya está conectada y protegida. La captura detallada se incorporará en la siguiente iteración.</p><div class="empty">Base de datos lista para mantenimientos preventivos, correctivos, diagnósticos y actualizaciones.</div></section>
+<section id="admin" class="view"><h1>Administración</h1><p class="lead">Configuración reservada para el Administrador.</p><div class="admin-grid"><div class="panel"><h2>Usuarios y permisos</h2><p>Roles: administrador, capturista y consulta.</p></div><div class="panel"><h2>Base de datos</h2><p>Conectada a Supabase con RLS activo.</p></div><div class="panel"><h2>Respaldo y exportación</h2><p>Se incorporará exportación a Excel y respaldo.</p></div><div class="panel"><h2>Datos institucionales</h2><p>COBACH Plantel Nogales II.</p></div></div></section>
+</main><footer>COBACH Plantel Nogales II · Control de Inventario de Equipo de Cómputo</footer>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="app.js"></script>
+</body></html>
