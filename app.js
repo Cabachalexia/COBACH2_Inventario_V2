@@ -71,7 +71,7 @@ async function loadMaintenance(){
 }
 
 function loadMaintenanceEquipment(){
-  cconst select=$('maintenanceEquipment');
+  const select=$('maintenanceEquipment');
   if(!select) return;
 
   select.innerHTML='<option value="">Seleccione un equipo</option>';
