@@ -92,7 +92,7 @@ function openMaintenanceForm(){
 
   $('maintenanceForm').reset();
   maintenanceEditId
-  $('maintenanceFecha').value=new Date().toISOString().split('T')[0];
+  $('maintenanceDate').value=new Date().toISOString().split('T')[0];
 
   loadMaintenanceEquipment();
 
@@ -111,11 +111,11 @@ async function saveMaintenance(e){
 
   if(!canWrite()) return;
 
-  const id=$('maintenanceId').value;
+  const id=$('maintenanceEditId').value;
 
   const payload={
     equipo_id:Number($('maintenanceEquipo').value),
-    fecha:$('maintenanceFecha').value,
+    fecha:$('maintenanceDate').value,
     tipo:$('maintenanceTipo').value,
     tecnico_responsable:$('maintenanceTecnico').value.trim()||null,
     diagnostico:$('maintenanceDiagnostico').value.trim()||null,
@@ -210,9 +210,9 @@ async function editMaintenance(id){
 
   loadMaintenanceEquipment();
 
-  $('maintenanceId').value=m.id;
+  $('maintenanceEditId').value=m.id;
   $('maintenanceEquipo').value=m.equipo_id||'';
-  $('maintenanceFecha').value=m.fecha||'';
+  $('maintenanceDate').value=m.fecha||'';
   $('maintenanceTipo').value=m.tipo||'';
   $('maintenanceTecnico').value=m.tecnico_responsable||'';
   $('maintenanceDiagnostico').value=m.diagnostico||'';
