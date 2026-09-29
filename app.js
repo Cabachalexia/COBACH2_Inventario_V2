@@ -114,21 +114,21 @@ async function saveMaintenance(e){
   const id=$('maintenanceEditId').value;
 
   const payload={
-    equipo_id:Number($('maintenanceEquipo').value),
+    equipo_id:Number($('maintenanceEquipment').value),
     fecha:$('maintenanceDate').value,
-    tipo:$('maintenanceTipo').value,
-    tecnico_responsable:$('maintenanceTecnico').value.trim()||null,
-    diagnostico:$('maintenanceDiagnostico').value.trim()||null,
-    trabajo_realizado:$('maintenanceTrabajo').value.trim()||null,
-    componentes_sustituidos:$('maintenanceComponentes').value.trim()||null,
-    estado_final:$('maintenanceEstadoFinal').value||null,
-    costo:$('maintenanceCosto').value
-      ? Number($('maintenanceCosto').value)
-      : null,
-    proxima_fecha:$('maintenanceProximaFecha').value||null,
-    descripcion:$('maintenanceDescripcion').value.trim()||null,
-    observaciones:$('maintenanceObservaciones').value.trim()||null
-  };
+    tipo:$('maintenanceType').value,
+    tecnico_responsable:$('maintenanceTechnician').value.trim()||null,
+    diagnostico:$('maintenanceDiagnosis').value.trim()||null,
+    trabajo_realizado:$('maintenanceWork').value.trim()||null,
+    componentes_sustituidos:$('maintenanceComponents').value.trim()||null,
+    estado_final:$('maintenanceFinalStatus').value||null,
+    costo:$('maintenanceCost').value
+        ? Number($('maintenanceCost').value)
+        : null,
+    proxima_fecha:$('maintenanceNextDate').value||null,
+    descripcion:$('maintenanceDescription').value.trim()||null,
+    observaciones:$('maintenanceNotes').value.trim()||null
+};
 
   $('maintenanceMessage').textContent='Guardando...';
 
