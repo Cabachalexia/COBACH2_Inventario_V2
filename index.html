@@ -26,7 +26,17 @@
 <section id="dashboard" class="view active"><h1>Panel de control</h1><p class="lead">Resumen general del equipo de cómputo del plantel.</p><div class="cards"><div class="card"><b id="total">0</b><span>Total de equipos</span></div><div class="card"><b id="good">0</b><span>Buen estado</span></div><div class="card"><b id="regular">0</b><span>Estado regular</span></div><div class="card"><b id="service">0</b><span>Requieren servicio</span></div></div><div class="panel"><h2>Equipos recientes</h2><div id="recent"></div></div></section>
 <section id="inventory" class="view"><div class="title-row"><div><h1>Inventario de equipos</h1><p class="lead">Consulta, localiza y administra los equipos registrados en Supabase.</p></div><button id="newEquipmentBtn" class="primary write-only" onclick="openNew()">+ Nuevo equipo</button></div><div class="toolbar"><input id="search" placeholder="Buscar por ID, inventario, serie, ubicación o responsable..."><select id="filter"><option value="">Todos los estados</option><option>Bueno</option><option>Regular</option><option>Requiere servicio</option><option>Baja</option></select></div><div class="table-wrap"><table><thead><tr><th>ID</th><th>Inventario</th><th>Equipo</th><th>Ubicación</th><th>Responsable</th><th>Estado</th><th>Acciones</th></tr></thead><tbody id="rows"></tbody></table></div></section>
 <section id="form" class="view"><h1 id="formTitle">Registrar nuevo equipo</h1><p class="lead">Capture la información técnica y administrativa del equipo.</p><form id="equipmentForm"><input type="hidden" id="editId"><div class="form-grid"><label>Identificación del equipo<input id="equipmentId" required placeholder="Ej. CB2-PC-001"></label><label>Número de inventario<input id="assetNo" placeholder="Inventario patrimonial"></label><label>Número de serie<input id="serial"></label><label>Marca<input id="brand"></label><label>Modelo<input id="model"></label><label>Ubicación<input id="location" required></label><label>Área / Aula<input id="area"></label><label>Responsable<input id="responsible"></label><label>Procesador (CPU)<input id="cpu"></label><label>Memoria RAM<input id="ram" placeholder="Ej. 16 GB DDR4"></label><label>Almacenamiento (Disco)<input id="storage" placeholder="Ej. SSD 512 GB"></label><label>Tarjeta Gráfica<input id="gpu"></label><label>Tarjeta Madre - Marca<input id="motherboardBrand"></label><label>Tarjeta Madre - Modelo<input id="motherboardModel"></label><label>Sistema Operativo<input id="os"></label><label>Monitor - Marca<input id="monitorBrand"></label><label>Monitor - Tamaño<input id="monitorSize" placeholder='Ej. 24"'></label><label>Estado del Equipo<select id="status" required><option>Bueno</option><option>Regular</option><option>Requiere servicio</option><option>Baja</option></select></label><label>Fecha de alta<input id="date" type="date"></label><label class="wide">Observaciones<textarea id="notes" rows="4"></textarea></label></div><div class="actions"><button type="button" class="secondary" onclick="showView('inventory')">Cancelar</button><button class="primary" type="submit">Guardar equipo</button></div><p id="formMessage" class="message"></p></form></section>
-<div class="table-wrap">
+</section>
+
+<section id="maintenance" class="view">
+  <div class="title-row">
+    <div>
+      <h1>Mantenimiento</h1>
+      <p class="lead">Registro y seguimiento de mantenimientos de los equipos.</p>
+    </div>
+    <button id="newMaintenanceBtn" class="primary write-only">+ Nuevo mantenimiento</button>
+  </div>
+  <div class="table-wrap">
     <table>
       <thead>
         <tr>
