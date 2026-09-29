@@ -91,7 +91,7 @@ function openMaintenanceForm(){
   if(!canWrite()) return;
 
   $('maintenanceForm').reset();
-  $('maintenanceId').value='';
+  maintenanceEditId
   $('maintenanceFecha').value=new Date().toISOString().split('T')[0];
 
   loadMaintenanceEquipment();
@@ -101,7 +101,7 @@ function openMaintenanceForm(){
 
 function closeMaintenanceForm(){
   $('maintenanceForm').reset();
-  $('maintenanceId').value='';
+  maintenanceEditId
   $('maintenanceMessage').textContent='';
   $('maintenanceFormPanel').hidden=true;
 }
