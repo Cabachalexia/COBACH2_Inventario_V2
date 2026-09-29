@@ -211,18 +211,18 @@ async function editMaintenance(id){
   loadMaintenanceEquipment();
 
   $('maintenanceEditId').value=m.id;
-  $('maintenanceEquipo').value=m.equipo_id||'';
-  $('maintenanceDate').value=m.fecha||'';
-  $('maintenanceTipo').value=m.tipo||'';
-  $('maintenanceTecnico').value=m.tecnico_responsable||'';
-  $('maintenanceDiagnostico').value=m.diagnostico||'';
-  $('maintenanceTrabajo').value=m.trabajo_realizado||'';
-  $('maintenanceComponentes').value=m.componentes_sustituidos||'';
-  $('maintenanceEstadoFinal').value=m.estado_final||'';
-  $('maintenanceCosto').value=m.costo??'';
-  $('maintenanceProximaFecha').value=m.proxima_fecha||'';
-  $('maintenanceDescripcion').value=m.descripcion||'';
-  $('maintenanceObservaciones').value=m.observaciones||'';
+  $('maintenanceEquipment').value=m.equipo_id||'';
+$('maintenanceDate').value=m.fecha||'';
+$('maintenanceType').value=m.tipo||'';
+$('maintenanceTechnician').value=m.tecnico_responsable||'';
+$('maintenanceDiagnosis').value=m.diagnostico||'';
+$('maintenanceWork').value=m.trabajo_realizado||'';
+$('maintenanceComponents').value=m.componentes_sustituidos||'';
+$('maintenanceFinalStatus').value=m.estado_final||'';
+$('maintenanceCost').value=m.costo??'';
+$('maintenanceNextDate').value=m.proxima_fecha||'';
+$('maintenanceDescription').value=m.descripcion||'';
+$('maintenanceNotes').value=m.observaciones||'';
 
   $('maintenanceFormPanel').hidden=false;
 }
