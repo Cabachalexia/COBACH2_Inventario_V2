@@ -36,7 +36,7 @@ function showView(id){
   if(id === 'maintenance'){
     loadMaintenance();
   }
-}}
+}
 document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>showView(b.dataset.view));
 async function loadEquipment(){const {data,error}=await db.from('equipos').select('*').order('created_at',{ascending:false});if(error){alert('Error al cargar inventario: '+error.message);return;}equipment=data||[];render();}
 function nextId(){let max=0;equipment.forEach(x=>{const m=(x.identificacion||'').match(/^CB2-PC-(\d+)$/i);if(m)max=Math.max(max,Number(m[1]));});return 'CB2-PC-'+String(max+1).padStart(3,'0');}
