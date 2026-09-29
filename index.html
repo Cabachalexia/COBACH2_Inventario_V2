@@ -36,7 +36,95 @@
     </div>
     <button id="newMaintenanceBtn" class="primary write-only">+ Nuevo mantenimiento</button>
   </div>
-  <div class="table-wrap">
+  <div id="maintenanceFormPanel" class="panel" hidden>
+  <h2 id="maintenanceFormTitle">Registrar mantenimiento</h2>
+
+  <form id="maintenanceForm">
+    <input type="hidden" id="maintenanceEditId">
+
+    <div class="form-grid">
+
+      <label>
+        Equipo
+        <select id="maintenanceEquipment" required>
+          <option value="">Seleccione un equipo</option>
+        </select>
+      </label>
+
+      <label>
+        Fecha
+        <input id="maintenanceDate" type="date" required>
+      </label>
+
+      <label>
+        Tipo de mantenimiento
+        <select id="maintenanceType" required>
+          <option value="">Seleccione</option>
+          <option value="Preventivo">Preventivo</option>
+          <option value="Correctivo">Correctivo</option>
+          <option value="Diagnóstico">Diagnóstico</option>
+          <option value="Actualización">Actualización</option>
+        </select>
+      </label>
+
+      <label>
+        Técnico responsable
+        <input id="maintenanceTechnician" type="text">
+      </label>
+
+      <label>
+        Diagnóstico
+        <textarea id="maintenanceDiagnosis"></textarea>
+      </label>
+
+      <label>
+        Trabajo realizado
+        <textarea id="maintenanceWork"></textarea>
+      </label>
+
+      <label>
+        Componentes sustituidos
+        <textarea id="maintenanceComponents"></textarea>
+      </label>
+
+      <label>
+        Costo
+        <input id="maintenanceCost" type="number" step="0.01" min="0">
+      </label>
+
+      <label>
+        Estado final
+        <select id="maintenanceFinalStatus">
+          <option value="">Seleccione</option>
+          <option value="Bueno">Bueno</option>
+          <option value="Regular">Regular</option>
+          <option value="Requiere servicio">Requiere servicio</option>
+          <option value="Fuera de servicio">Fuera de servicio</option>
+        </select>
+      </label>
+
+      <label>
+        Próximo mantenimiento
+        <input id="maintenanceNextDate" type="date">
+      </label>
+
+    </div>
+
+    <label>
+      Observaciones
+      <textarea id="maintenanceNotes"></textarea>
+    </label>
+
+    <div class="form-actions">
+      <button type="button" id="cancelMaintenanceBtn">Cancelar</button>
+      <button type="submit" class="primary">Guardar mantenimiento</button>
+    </div>
+
+    <p id="maintenanceMessage" class="message"></p>
+  </form>
+  </div>
+
+        <div class="table-wrap">
     <table>
       <thead>
         <tr>
